@@ -5,16 +5,20 @@ const tags = ["Todo", "Work", "Personal", "Meeting", "Shopping"];
 
 export default function Default() {
   return (
-    <aside className={css.sidebar}>
-      <Link href="/notes/filter/all" className={css.link}>
-        All notes
-      </Link>
+    <ul className={css["menuList"]}>
+      <li className={css["menuItem"]}>
+        <Link href="/notes/filter/all" className={css["menuLink"]}>
+          All notes
+        </Link>
+      </li>
 
       {tags.map((tag) => (
-        <Link key={tag} href={`/notes/filter/${tag}`} className={css.link}>
-          {tag}
-        </Link>
+        <li key={tag} className={css["menuItem"]}>
+          <Link href={`/notes/filter/${tag}`} className={css["menuLink"]}>
+            {tag}
+          </Link>
+        </li>
       ))}
-    </aside>
+    </ul>
   );
 }

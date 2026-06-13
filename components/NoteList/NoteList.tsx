@@ -3,7 +3,7 @@
 import css from "./NoteList.module.css";
 import type { Note } from "@/types/note";
 import { useQueryClient, useMutation } from "@tanstack/react-query";
-import { deleteNote } from "@/lib/api/notesApi";
+import { deleteNote } from "@/lib/api";
 import { toast } from "react-toastify";
 import Link from "next/link";
 

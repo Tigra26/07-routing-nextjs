@@ -6,7 +6,7 @@ import * as Yup from "yup";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 
-import { createNote } from "@/lib/api/notesApi";
+import { createNote } from "@/lib/api";
 import type { NoteTag } from "@/types/note";
 
 interface NoteFormProps {

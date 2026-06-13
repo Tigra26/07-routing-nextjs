@@ -1,7 +1,7 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { fetchNoteById } from "@/lib/api/notesApi";
+import { fetchNoteById } from "@/lib/api";
 import css from "./NotePreview.module.css";
 
 interface NotePreviewProps {

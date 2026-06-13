@@ -1,5 +1,16 @@
+import axios from "axios";
 import type { NewNoteData, Note } from "@/types/note";
-import { noteApi } from "./serverConfig";
+
+// axios instance
+
+const noteApi = axios.create({
+  baseURL: "https://notehub-public.goit.study/api",
+  headers: {
+    Authorization: `Bearer ${process.env.NEXT_PUBLIC_NOTEHUB_TOKEN}`,
+  },
+});
+
+// GET request 
 
 export interface FetchNotesResponse {
   notes: Note[];
@@ -26,17 +37,23 @@ export const fetchNotes = async (
   return data;
 };
 
+// GET request for one note by id
+
 export const fetchNoteById = async (id: Note["id"]): Promise<Note> => {
   const { data } = await noteApi.get<Note>(`/notes/${id}`);
 
   return data;
 };
 
+// POST request
+
 export const createNote = async (newNoteData: NewNoteData): Promise<Note> => {
   const { data } = await noteApi.post<Note>("/notes", newNoteData);
 
   return data;
 };
+
+// DELETE request
 
 export const deleteNote = async (id: Note["id"]): Promise<Note> => {
   const { data } = await noteApi.delete<Note>(`/notes/${id}`);

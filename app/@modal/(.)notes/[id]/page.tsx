@@ -1,4 +1,4 @@
-import NotePreviewModal from "./NotePreviewModal";
+import NotePreviewModal from "./NotePreview.client";
 
 interface Props {
   params: Promise<{ id: string }>;
